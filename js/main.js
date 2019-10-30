@@ -30,6 +30,7 @@ var document_attr_observer = new MutationObserver(function (records) {
         dark_mode_main.process_node(records[i].target);
     }
 });
+/**   **/
 var dark_mode_main = {
     /**
     * Initialize colors
