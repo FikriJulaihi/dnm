@@ -30,33 +30,32 @@ var document_attr_observer = new MutationObserver(function (records) {
         dark_mode_main.process_node(records[i].target);
     }
 });
-/**   **/
 var dark_mode_main = {
     /**
-    * Initialize colors
-    */
+     * Initialize colors
+     */
     blank_color :'rgba(0, 0, 0, 0)',
     /**
-    * Initialize Color Object Varialbe
-    */
+     * Initialize Color Object Varialbe
+     */
     curr_obj     : {
         'rgb(255, 255, 255)': 'rgb(23, 23, 23)',
         'rgb(245, 245, 245)': 'rgb(22, 22, 22)'
     },
     current_dfc : document.defaultView,
     /**
-    * Array reduce method
-    * to get sum of values
-    */
+     * Array reduce method
+     * to get sum of values
+     */
     get_sum     : function(total, num) {
         return parseInt(total) + parseInt(num);
     },
     /**
-    * Get sum of rgb values
-    * @param {string} color . The color in rgb format
-    *
-    * @return {int} Returns the sum of rgb value as integer
-    */
+     * Get sum of rgb values
+     * @param {string} color . The color in rgb format
+     *
+     * @return {int} Returns the sum of rgb value as integer
+     */
     get_rgb_data    : function(color) {
         var rgb = color.match(/\d+/g);
         return {
@@ -65,12 +64,12 @@ var dark_mode_main = {
         }
     },
     /**
-    * Blend black color
-    * @param {string} c1 . The orginal color
-    * @param {int} p . Percent. Lower the number, darker the color would be returend
-    *
-    * @return {string} Returns darked rgb color
-    */
+     * Blend black color
+     * @param {string} c1 . The orginal color
+     * @param {int} p . Percent. Lower the number, darker the color would be returend
+     *
+     * @return {string} Returns darked rgb color
+     */
     get_darker_shade: function(c1,p) {
         var new_R = Math.round((parseInt(c1[0])*p)),
             new_G = Math.round((parseInt(c1[1])*p)),
@@ -255,7 +254,7 @@ var dark_mode_main = {
      * This removes global css element
      *
      * @return void
-    */
+     */
     remove_link_element: function() {
         var styles  = document.getElementsByClassName('dmn-custom-remove-after-load');
         if (styles) {
