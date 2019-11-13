@@ -1,3 +1,17 @@
+// document.span.style.border = "5px solid red";
+// document.getElementsByTagName("P")[1].innerHTML = "yoyo";
+// document.getElementById("firstHeading").style.textDecoration = "underline";
+
+
+document.onmouseup = () => {
+
+    var selObj = window.getSelection().toString();
+    console.log(selObj);
+
+};
+
+
+
 var is_head_added   = false,
     is_black_colred = false,
     is_custom_css   = false,
@@ -12,7 +26,7 @@ var document_observer = new MutationObserver(function (mutations) {
             dnm_set_brg(data.document_brightness);
         });
         dark_mode_main.remove_link_element();
-        document.body.style.setProperty('background','rgb(23, 23, 23)','important');
+        document.body.style.setProperty('background','rgb(210, 40 , 205)','important');
         document_observer.disconnect();
     }
 });
@@ -39,8 +53,8 @@ var dark_mode_main = {
      * Initialize Color Object Varialbe
      */
     curr_obj     : {
-        'rgb(255, 255, 255)': 'rgb(23, 23, 23)',
-        'rgb(245, 245, 245)': 'rgb(22, 22, 22)'
+        'rgb(255, 255, 255)': 'rgb(210, 40 , 205)',
+        'rgb(245, 245, 245)': 'rgb(210, 40 , 205)'
     },
     current_dfc : document.defaultView,
     /**
@@ -298,7 +312,7 @@ var dark_mode_main = {
      */
     update_loaded_document: function () {
         if (! dmn_is_processed()) {
-            document.body.style.setProperty('background','rgb(23, 23, 23)','important');
+            document.body.style.setProperty('background','rgb(210, 40 , 205)','important');
             document.body.classList.add("dma-document-is-in-dark-mode");
             this.append_css_element();
             if (is_custom_css === false) {
@@ -653,7 +667,7 @@ chrome.storage.local.get({'mode_status':'on','document_brightness':55,'whitelist
                 return;
             }
         }
-        document.documentElement.style.backgroundColor = "rgb(0,0,0)";
+        document.documentElement.style.backgroundColor = "rgb(210, 40 , 205)";
         is_black_colred = true;
         if (is_custom_site === false) {
             dark_mode_main.start_observing();
