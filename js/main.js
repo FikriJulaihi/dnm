@@ -6,7 +6,7 @@
 document.onmouseup = () => {
 
     var selObj = window.getSelection().toString();
-    console.log(selObj);
+    alert(selObj);
 
 };
 
