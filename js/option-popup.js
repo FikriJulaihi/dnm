@@ -198,3 +198,36 @@ jQuery(document).ready(function($) {
         dnm_options.save_option_data({'lock_brightness':value});
     });
 });
+////////////////////
+function changegreen() {
+    chrome.tabs.query({currentWindow: true, active: true}, function (tabs){
+        var activeTab = tabs[0];
+        chrome.tabs.sendMessage(activeTab.id, {"message": "green"});
+    });
+}
+
+    document.addEventListener("DOMContentLoaded", function() {
+    document.getElementById("grn").addEventListener("click", changegreen);
+});
+
+function changeyellow() {
+    chrome.tabs.query({currentWindow: true, active: true}, function (tabs){
+        var activeTab = tabs[0];
+        chrome.tabs.sendMessage(activeTab.id, {"message": "yellow"});
+    });
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+    document.getElementById("yel").addEventListener("click", changeyellow);
+});
+
+function changeblue() {
+    chrome.tabs.query({currentWindow: true, active: true}, function (tabs){
+        var activeTab = tabs[0];
+        chrome.tabs.sendMessage(activeTab.id, {"message": "blue"});
+    });
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+    document.getElementById("blue1").addEventListener("click", changeblue);
+});

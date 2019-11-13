@@ -9,9 +9,46 @@ document.onmouseup = () => {
     alert(selObj);
 
 };
+//////////
+
+chrome.runtime.onMessage.addListener(
+    function(request, sender, sendResponse) {
+        if( request.message === "green" ) {
+            chggreen();
+        }
+    }
+);
+
+function chggreen(){
+    document.body.style.setProperty('background','rgb(0, 100 , 0)','important');
+}
+
+chrome.runtime.onMessage.addListener(
+    function(request, sender, sendResponse) {
+        if( request.message === "yellow" ) {
+            chgyellow();
+        }
+    }
+);
+
+function chgyellow(){
+    document.body.style.setProperty('background','rgb(255, 255 , 0)','important');
+}
+
+chrome.runtime.onMessage.addListener(
+    function(request, sender, sendResponse) {
+        if( request.message === "blue" ) {
+            chgblue();
+        }
+    }
+);
+
+function chgblue(){
+    document.body.style.setProperty('background','rgb(0, 191 , 255)','important');
+}
 
 
-
+////////////
 var is_head_added   = false,
     is_black_colred = false,
     is_custom_css   = false,
@@ -26,7 +63,7 @@ var document_observer = new MutationObserver(function (mutations) {
             dnm_set_brg(data.document_brightness);
         });
         dark_mode_main.remove_link_element();
-        document.body.style.setProperty('background','rgb(210, 40 , 205)','important');
+        document.body.style.setProperty('background','rgb(128, 128 , 128)','important');
         document_observer.disconnect();
     }
 });
@@ -312,7 +349,7 @@ var dark_mode_main = {
      */
     update_loaded_document: function () {
         if (! dmn_is_processed()) {
-            document.body.style.setProperty('background','rgb(210, 40 , 205)','important');
+            document.body.style.setProperty('background','rgb(30, 10 , 25)','important');
             document.body.classList.add("dma-document-is-in-dark-mode");
             this.append_css_element();
             if (is_custom_css === false) {
@@ -667,7 +704,7 @@ chrome.storage.local.get({'mode_status':'on','document_brightness':55,'whitelist
                 return;
             }
         }
-        document.documentElement.style.backgroundColor = "rgb(210, 40 , 205)";
+        document.documentElement.style.backgroundColor = "rgb(60, 133 , 210)";
         is_black_colred = true;
         if (is_custom_site === false) {
             dark_mode_main.start_observing();
